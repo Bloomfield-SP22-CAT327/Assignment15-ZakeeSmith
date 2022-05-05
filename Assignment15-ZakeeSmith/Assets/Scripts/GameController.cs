@@ -31,6 +31,7 @@ public class GameController : MonoBehaviour
         if(Input.GetKeyDown("a"))
         {
             StartCoroutine(FadeSound());
+            Debug.Log("Start Fade Sound");
         }
     }
 
@@ -38,7 +39,9 @@ public class GameController : MonoBehaviour
     {
         for(float a= 1f; a>= 0; a-= 0.1f)
         {
-            audioMixer.SetFloat("masterVolume", master - 2.5f);
+            Debug.Log("A value =" + a);
+            audioMixer.SetFloat("masterVolume", master -= 2.5f);
+            masterVolumeSlider.value = master;
             yield return null;
         }
         
